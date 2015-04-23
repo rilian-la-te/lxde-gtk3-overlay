@@ -1,12 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
-<repositories xmlns="" version="1.0">
+<repositories xmlns="" version="1.1">
 	<repo priority="100" quality="experimental" status="unofficial">
 		<name>lxde-gtk3</name>
-		<description>Ebuilds necessary to build Gtk+3 version of LXDE</description>
+		<description>ebuilds necessary to build Gtk+3 version of LXDE</description>
 		<homepage>https://github.com/rilian-la-te/lxde-gtk3-overlay</homepage>
 		<owner>
 			<email>ria.freelander@gmail.com</email>
+			<name>Konstantin P.</name>
 		</owner>
 		<source type="git">https://github.com/rilian-la-te/lxde-gtk3-overlay.git</source>
 	</repo>
