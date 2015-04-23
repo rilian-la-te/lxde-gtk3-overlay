@@ -1,0 +1,20 @@
+desktop-file-validate:
+
+leafpad.desktop: error: value "text/plain" for string list key "MimeType" in group "Desktop Entry"
+does not have a semicolon (';') as trailing character
+
+leafpad.desktop: warning: key "Encoding" in group "Desktop Entry" is deprecated
+
+--- data/l3afpad.desktop.in
++++ data/l3afpad.desktop.in
+@@ -1,9 +1,9 @@
+ [Desktop Entry]
+ _Name=L3afpad
+ _Comment=Simple text editor
+ Exec=l3afpad %f
+ Icon=l3afpad
+ Terminal=false
+ Type=Application
+-MimeType=text/plain
++MimeType=text/plain;
+ Categories=GTK;Utility;TextEditor;
