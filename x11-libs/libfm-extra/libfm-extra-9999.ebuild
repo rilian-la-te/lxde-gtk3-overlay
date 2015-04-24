@@ -22,7 +22,7 @@ DEPEND="${RDEPEND}
 	sys-devel/gettext
 	!!<=x11-libs/libfm-1.2.3"
 
-S="${WORKDIR}"/${MY_P}
+S="${WORKDIR}"/${P}
 
 src_prepare() {
 	sed -ie '/^SUBDIR.*=/s#docs##' "${S}"/Makefile.am || die "sed failed"
