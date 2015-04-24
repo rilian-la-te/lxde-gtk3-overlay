@@ -4,10 +4,9 @@
 
 EAPI=5
 
-EGIT_REPO_URI="https://github.com/lxde/${PN}"
+EGIT_REPO_URI="https://github.com/lxde/${PN}.git"
 # master seems way too unstable for us to use
-EGIT_BRANCH="master"
-inherit autotools git-2 fdo-mime vala
+inherit autotools git-r3 fdo-mime vala
 
 DESCRIPTION="A library for file management"
 HOMEPAGE="http://pcmanfm.sourceforge.net/"
@@ -104,13 +103,16 @@ fi
 src_install() {
 	default
 	find "${D}" -name '*.la' -exec rm -f '{}' +
-	# Remove broken symlink #439570
 	# Sometimes a directory is created instead of a symlink. No idea why...
 	# It is wrong anyway. We expect a libfm-1.0 directory and then a libfm
 	# symlink to it.
 	if [[ -h ${D}/usr/include/${PN} || -d ${D}/usr/include/${PN} ]]; then
 		rm -r "${D}"/usr/include/${PN}
 	fi
+	# Remove files installed by split-off libfm-extra package
+	rm "${D}"/usr/include/libfm-1.0/fm-{extra,version,xml-file}.h
+	rm "${D}"/usr/$(get_libdir)/libfm-extra*
+	rm "${D}"/usr/$(get_libdir)/pkgconfig/libfm-extra.pc
 }
 
 pkg_preinst() {
