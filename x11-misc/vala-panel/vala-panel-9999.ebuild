@@ -46,6 +46,7 @@ src_configure() {
 		$(cmake-utils_use_enable wnck)
 		$(cmake-utils_use_enable X X11)
 		-DGSETTINGS_COMPILE=OFF
+		-DCMAKE_INSTALL_SYSCONFDIR=/etc
 	)
 	cmake-utils_src_configure
 	# the gtk+ dep already pulls in libX11, so we might as well hardcode with-x
