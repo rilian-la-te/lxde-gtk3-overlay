@@ -7,8 +7,9 @@
   <name>Markos Chandras</name>
   </maintainer>
   <use>
-	<flag name='vala'>Support custom actions in menus</flag>
-	<flag name='udisks'>Use libfm's udisks-based volume monitor implementation instead of using the one from gvfs</flag>
-	<flag name='automount'>Use <pkg>gnome-base/gvfs</pkg> for automounting</flag>
+    <flag name='vala'>Support custom actions in menus</flag>
+    <flag name='udisks'>Use libfm's udisks-based volume monitor implementation instead of using the one from gvfs</flag>
+    <flag name='automount'>Use <pkg>gnome-base/gvfs</pkg> for automounting</flag>
+    <flag name='gtk3'>Use <pkg>gtk+:3</pkg> instead of <pkg>gtk+:2</pkg></flag>
   </use>
 </pkgmetadata>

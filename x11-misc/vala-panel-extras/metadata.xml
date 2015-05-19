@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <herd>lxde</herd>
+  <use>
+     <flag name='gtop'>Build network speed binary applet.</flag>
+     <flag name='xkb'>Build keyboard layout binary applet.</flag>
+     <flag name='weather'>Build weather binary applet.</flag>
+  </use>
+</pkgmetadata>

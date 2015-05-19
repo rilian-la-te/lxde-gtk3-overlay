@@ -6,4 +6,7 @@
   	<email>hwoarang@gentoo.org</email>
 	<name>Markos Chandras</name>
   </maintainer>
+  <use>
+     <flag name='gtk3'>Use <pkg>gtk+:3</pkg> instead of <pkg>gtk+:2</pkg></flag>
+  </use>
 </pkgmetadata>

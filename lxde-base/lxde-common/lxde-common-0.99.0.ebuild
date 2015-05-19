@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit eutils autotools 
+inherit eutils autotools
 
 DESCRIPTION="LXDE Session default configuration files and nuoveXT2 iconset"
 HOMEPAGE="http://lxde.sf.net/"
@@ -40,7 +40,7 @@ src_install () {
 	emake DESTDIR="${D}" install
 	# install session file
 	insinto /etc/X11/Sessions/
-	doins ${FILESDIR}/lxde
+	doins "${FILESDIR}"/lxde
 	fperms 755 /etc/X11/Sessions/lxde
 	dodoc AUTHORS ChangeLog README
 }

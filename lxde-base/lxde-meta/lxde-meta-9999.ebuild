@@ -22,7 +22,7 @@ RDEPEND=">=lxde-base/menu-cache-0.3.3
 	x11-misc/vala-panel
 	>=lxde-base/lxsession-0.5.0
 	>=x11-libs/libfm-1.2.0
-	x11-terms/sakura
+	x11-terms/gnome-terminal
 	media-gfx/gpicview
 	x11-misc/pcmanfm
 	x11-wm/openbox

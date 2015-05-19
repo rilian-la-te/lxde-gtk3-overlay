@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <herd>lxde</herd>
+  <use>
+     <flag name='vala-panel'>Build plugin for <pkg>vala-panel</pkg></flag>
+     <flag name='xfce'>Build plugin for <pkg>xfce4-panel</pkg></flag>
+     <flag name='wnck'>Build <pkg>libwnck:3</pkg> support (window switching in application menu).</flag>
+  </use>
+</pkgmetadata>

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxde-meta/lxde-meta-0.5.5-r3.ebuild,v 1.6 2013/10/09 20:51:47 hwoarang Exp $
+# $Header: /var/cvsroot/gentoo-x86/lxde-base/lxde-meta/lxde-meta-0.5.5-r4.ebuild,v 1.2 2014/03/16 13:20:58 hwoarang Exp $
 
 EAPI="2"
 
@@ -9,23 +9,20 @@ HOMEPAGE="http://lxde.sf.net/"
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ppc x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=lxde-base/menu-cache-0.3.3
-	=lxde-base/lxappearance-0.5*
+	=lxde-base/lxappearance-0.6*
 	=lxde-base/lxde-icon-theme-0.5*
-	=lxde-base/lxde-common-0.5.5*
+	>=lxde-base/lxde-common-0.5.5
 	=lxde-base/lxmenu-data-0.1*
 	=lxde-base/lxinput-0.3*
-	>=lxde-base/lxpanel-0.5.10
 	=lxde-base/lxrandr-0.1*
-	|| ( ( <=lxde-base/lxsession-0.4.6.1
-		=lxde-base/lxsession-edit-0.2* )
-		>lxde-base/lxsession-0.4.6.1 )
-	=lxde-base/lxshortcut-0.1*
-	=lxde-base/lxtask-0.1*
-	=lxde-base/lxterminal-0.1.11*
+	x11-misc/vala-panel
+	>=lxde-base/lxsession-0.5.0
+	>=x11-libs/libfm-1.2.0
+	x11-terms/sakura
 	media-gfx/gpicview
 	x11-misc/pcmanfm
 	x11-wm/openbox

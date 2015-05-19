@@ -24,7 +24,7 @@ RDEPEND=">=x11-libs/gtk+-3.12.0:3
 	alsa? ( media-libs/alsa-lib )
 	weather? ( >=dev-libs/libgweather-3.14.0 )
 	upower? ( >=sys-power/upower-0.99.0 )
-	xkb? ( x11-libs/libxkbcommon[X] 
+	xkb? ( x11-libs/libxkbcommon[X]
 	       x11-libs/libxcb
 	       x11-libs/libX11 )
 	gtop? ( gnome-base/libgtop )"

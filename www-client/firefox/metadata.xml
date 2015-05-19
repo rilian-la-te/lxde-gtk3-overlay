@@ -22,5 +22,6 @@
 		instead of bundled.</flag>
 	<flag name="system-sqlite">Use the system-wide <pkg>dev-db/sqlite</pkg>
 		installation with secure-delete enabled</flag>
+	<flag name='gtk3'>Use <pkg>gtk+:3</pkg> instead of <pkg>gtk+:2</pkg></flag>
 </use>
 </pkgmetadata>

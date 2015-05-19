@@ -3,6 +3,7 @@
 <pkgmetadata>
   <herd>lxde</herd>
   <use>
-     <flag name='wnck'>Build plugins with <pkg>libwnck:3</pkg> dependency: tasklist, systray, deskno, wincmd, pager, xembed</flag>
+     <flag name='vala-panel'>Build plugin for <pkg>vala-panel</pkg></flag>
+     <flag name='xfce'>Build plugin for <pkg>xfce4-panel</pkg></flag>
   </use>
 </pkgmetadata>

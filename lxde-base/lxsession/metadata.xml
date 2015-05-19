@@ -2,4 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <herd>lxde</herd>
+  <use>
+    <flag name='gtk3'>Use <pkg>gtk+:3</pkg> instead of <pkg>gtk+:2</pkg></flag>
+    <flag name='polkit-agent'>Build LXDE PolicyKit authentification agent</flag>
+    <flag name='clipboard'>Build clipboard helper</flag>
+  </use>
 </pkgmetadata>

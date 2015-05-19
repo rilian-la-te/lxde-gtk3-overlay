@@ -24,9 +24,7 @@ DEPEND="${RDEPEND}
 DOCS="AUTHORS ChangeLog NEWS README"
 
 src_prepare() {
-	epatch \
-		"${FILESDIR}"/${P}-fdo.patch 
-#		"${FILESDIR}"/${P}-format-security.patch
+	epatch "${FILESDIR}"/${P}-fdo.patch
 }
 
 src_configure() {
@@ -36,8 +34,8 @@ src_configure() {
 }
 
 src_install() {
-    emake DESTDIR="${D}" install
-    dodoc README ChangeLog AUTHORS
+	emake DESTDIR="${D}" install
+	dodoc README ChangeLog AUTHORS
 }
 
 pkg_preinst() {

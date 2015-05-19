@@ -25,7 +25,6 @@ DEPEND="${RDEPEND}
 	x11-libs/gtk+:3
 	!x11-misc/appmenu-gtk"
 
-
 pkg_setup() {
 	python_export_best
 }

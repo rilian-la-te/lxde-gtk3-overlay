@@ -16,7 +16,7 @@ EBZR_REPO_URI="lp:bamf"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~arm ~ppc ~x86 ~x86-interix ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="+introspection doc static-libs"
 
 RDEPEND="

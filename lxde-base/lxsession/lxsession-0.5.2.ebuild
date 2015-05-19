@@ -23,7 +23,7 @@ COMMON_DEPEND="dev-libs/glib:2
 	dev-libs/dbus-glib
 	lxde-base/lxde-common
 	sys-auth/polkit
-    gtk3? ( x11-libs/gtk+:3
+	gtk3? ( x11-libs/gtk+:3
 	dev-libs/libgee:0.8 )
 	!gtk3? ( x11-libs/gtk+:2
 	dev-libs/libgee:0 )
@@ -67,7 +67,7 @@ src_configure() {
 }
 
 src_compile() {
-    if [ -f Makefile ] || [ -f GNUmakefile ] || [ -f makefile ]; then
-        emake -j1 || die "emake failed"
-    fi
+	if [ -f Makefile ] || [ -f GNUmakefile ] || [ -f makefile ]; then
+		emake -j1 || die "emake failed"
+	fi
 }

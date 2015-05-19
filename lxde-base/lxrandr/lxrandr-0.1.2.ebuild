@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit autotools eutils
+inherit eutils
 
 DESCRIPTION="LXDE GUI interface to RandR extention"
 HOMEPAGE="http://lxde.sf.net/"
@@ -15,7 +15,7 @@ KEYWORDS="~alpha amd64 arm ppc x86 ~arm-linux ~x86-linux"
 SLOT="0"
 IUSE="gtk3"
 
-RDEPEND="	gtk3? ( x11-libs/gtk+:3 )
+RDEPEND="gtk3? ( x11-libs/gtk+:3 )
 	!gtk3? ( x11-libs/gtk+:2 )
 	x11-libs/libXrandr
 	x11-apps/xrandr"

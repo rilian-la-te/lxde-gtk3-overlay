@@ -141,7 +141,8 @@ src_unpack() {
 
 src_prepare() {
 	# Apply our patches
-	EPATCH_EXCLUDE="8002_jemalloc_configure_unbashify.patch" \
+	EPATCH_EXCLUDE="8002_jemalloc_configure_unbashify.patch
+			6001_add_alpha_defines_in_ipc.patch" \
 	EPATCH_SUFFIX="patch" \
 	EPATCH_FORCE="yes" \
 	epatch "${WORKDIR}/firefox"
