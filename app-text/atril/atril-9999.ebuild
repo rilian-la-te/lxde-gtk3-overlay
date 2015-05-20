@@ -31,7 +31,7 @@ RDEPEND=">=app-text/poppler-0.14:0=[cairo]
 	mate? ( >=mate-base/mate-desktop-1.9:0[gtk3?] )
 	sys-libs/zlib:0
 	gtk3? ( >=x11-libs/gtk+-3.0:3[introspection?] 
-			epub? ( net-libs/webkit-gtk:4 ) )
+			epub? ( net-libs/webkit-gtk:3 ) )
 	!gtk3? ( >=x11-libs/gtk+-2.21.5:2[introspection?]
 			epub? ( net-libs/webkit-gtk:2 )
 			x11-libs/gdk-pixbuf:2 )
