@@ -46,6 +46,7 @@ esac
 
 # use-flags common among all mozilla ebuilds
 IUSE="${IUSE} gtk3 dbus debug gstreamer pulseaudio selinux startup-notification system-cairo system-icu system-jpeg system-sqlite system-libvpx"
+REQUIRED_USE="gtk3? ( system-cairo )"
 
 # some notes on deps:
 # gtk:2 minimum is technically 2.10 but gio support (enabled by default) needs 2.14
