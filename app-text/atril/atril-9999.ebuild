@@ -41,10 +41,7 @@ RDEPEND=">=app-text/poppler-0.14:0=[cairo]
 	>=x11-libs/cairo-1.9.10:0
 	x11-libs/pango:0
 	>=x11-themes/mate-icon-theme-1.6:0
-	caja? ( || (
-		>=mate-base/caja-1.8:0[introspection?]
-		>=mate-base/mate-file-manager-1.6:0[introspection?]
-	 ) )
+	caja? ( >=mate-base/caja-1.8:0[introspection?] )
 	djvu? ( >=app-text/djvu-3.5.17:0 )
 	dvi? (
 		virtual/tex-base:0
