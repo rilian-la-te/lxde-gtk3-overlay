@@ -183,5 +183,14 @@ src_configure() {
 		$(use_enable tiff) \
 		$(use_enable xps)
 }
-
+pkg_preinst() {
+	gnome2_icon_savelist
+	gnome2_schemas_savelist
+	gnome2_gdk_pixbuf_savelist
+}
+pkg_postinst() {
+	gnome2_icon_cache_update
+	gnome2_schemas_update
+	gnome2_gdk_pixbuf_update
+}
 DOCS="AUTHORS NEWS README TODO"
