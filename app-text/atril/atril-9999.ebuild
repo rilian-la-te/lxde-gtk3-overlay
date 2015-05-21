@@ -8,7 +8,7 @@ ELTCONF="--portage"
 GCONF_DEBUG="yes"
 GNOME2_LA_PUNT="yes"
 
-inherit autotools gnome2-utils versionator git-r3
+inherit autotools gnome2-utils eutils versionator git-r3
 
 #MATE_BRANCH="$(get_version_component_range 1-2)"
 
@@ -67,7 +67,7 @@ RESTRICT="test"
 
 src_prepare() {
 	# Patch for mate-desktop optional
-	patch -p1 ${PN}-mate-optional.patch
+	epatch "${FILESDIR}/${PN}-mate-optional.patch"
 	# Fix .desktop categories, upstream bug #666346.
 	sed -e "s:GTK\;Graphics\;VectorGraphics\;Viewer\;:GTK\;Office\;Viewer\;Graphics\;VectorGraphics;:g" -i data/atril.desktop.in.in || die
 
@@ -75,7 +75,78 @@ src_prepare() {
 	eautoreconf
 
 	gnome2_environment_reset
-	gnome2_src_prepare
+	# Everything is fatal EAPI 4 onwards
+	nonfatal elibtoolize ${ELTCONF}
+}
+
+# @FUNCTION: gnome2_src_configure
+# @DESCRIPTION:
+# Gnome specific configure handling
+gnome2_src_configure() {
+	# Update the GNOME configuration options
+	if [[ ${GCONF_DEBUG} != 'no' ]] ; then
+		if use debug ; then
+			G2CONF="--enable-debug=yes ${G2CONF}"
+		fi
+	fi
+
+	# Starting with EAPI=5, we consider packages installing gtk-doc to be
+	# handled by adding DEPEND="dev-util/gtk-doc-am" which provides tools to
+	# relink URLs in documentation to already installed documentation.
+	# This decision also greatly helps with constantly broken doc generation.
+	# Remember to drop 'doc' USE flag from your package if it was only used to
+	# rebuild docs.
+	# Preserve old behavior for older EAPI.
+	if grep -q "enable-gtk-doc" "${ECONF_SOURCE:-.}"/configure ; then
+		if has ${EAPI:-0} 2 3 4 && in_iuse doc ; then
+			G2CONF="$(use_enable doc gtk-doc) ${G2CONF}"
+		else
+			G2CONF="--disable-gtk-doc ${G2CONF}"
+		fi
+	fi
+
+	# Pass --disable-maintainer-mode when needed
+	if grep -q "^[[:space:]]*AM_MAINTAINER_MODE(\[enable\])" \
+		"${ECONF_SOURCE:-.}"/configure.*; then
+		G2CONF="--disable-maintainer-mode ${G2CONF}"
+	fi
+
+	# Pass --disable-scrollkeeper when possible
+	if grep -q "disable-scrollkeeper" "${ECONF_SOURCE:-.}"/configure; then
+		G2CONF="--disable-scrollkeeper ${G2CONF}"
+	fi
+
+	# Pass --disable-silent-rules when possible (not needed for eapi5), bug #429308
+	if has ${EAPI:-0} 2 3 4; then
+		if grep -q "disable-silent-rules" "${ECONF_SOURCE:-.}"/configure; then
+			G2CONF="--disable-silent-rules ${G2CONF}"
+		fi
+	fi
+
+	# Pass --disable-schemas-install when possible
+	if grep -q "disable-schemas-install" "${ECONF_SOURCE:-.}"/configure; then
+		G2CONF="--disable-schemas-install ${G2CONF}"
+	fi
+
+	# Pass --disable-schemas-compile when possible
+	if grep -q "disable-schemas-compile" "${ECONF_SOURCE:-.}"/configure; then
+		G2CONF="--disable-schemas-compile ${G2CONF}"
+	fi
+
+	# Pass --enable-compile-warnings=minimum as we don't want -Werror* flags, bug #471336
+	if grep -q "enable-compile-warnings" "${ECONF_SOURCE:-.}"/configure; then
+		G2CONF="--enable-compile-warnings=minimum ${G2CONF}"
+	fi
+
+	# Pass --docdir with proper directory, bug #482646
+	if grep -q "^ *--docdir=" "${ECONF_SOURCE:-.}"/configure; then
+		G2CONF="--docdir="${EPREFIX}"/usr/share/doc/${PF} ${G2CONF}"
+	fi
+
+	# Avoid sandbox violations caused by gnome-vfs (bug #128289 and #345659)
+	addwrite "$(unset HOME; echo ~)/.gnome2"
+
+	econf ${G2CONF} "$@"
 }
 
 src_configure() {
@@ -104,7 +175,7 @@ src_configure() {
 		$(use_enable dvi) \
 		$(use_enable epub) \
 		$(use_with gnome-keyring keyring) \
-		$(use_with mate matedesktop)
+		$(use_with mate matedesktop) \
 		$(use_enable introspection) \
 		$(use_enable caja) \
 		$(use_enable ps) \
