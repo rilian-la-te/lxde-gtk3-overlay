@@ -5,7 +5,7 @@
 EAPI="2"
 
 WANT_AUTOMAKE="1.9"
-inherit autotools fdo-mime git-2
+inherit autotools fdo-mime git-r3
 
 DESCRIPTION="ObConf is a tool for configuring the Openbox window manager"
 HOMEPAGE="http://openbox.org/wiki/ObConf:About"
